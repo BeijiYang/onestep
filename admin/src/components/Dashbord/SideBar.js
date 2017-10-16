@@ -3,6 +3,9 @@ import styled from 'styled-components'
 import {
   withRouter
 } from 'react-router-dom'
+import { Menu, Icon } from 'antd';
+const SubMenu = Menu.SubMenu;
+const MenuItemGroup = Menu.ItemGroup;
 
 
 const SideBarWrap = styled.div`
@@ -55,7 +58,22 @@ class SideBar extends Component {
           Logo
         </LogoWrap>
         <NavWrap>
-          Navigator
+          <Menu
+            onClick={this.handleClick}
+            style={{ width: 240 }}
+            defaultSelectedKeys={['1']}
+            defaultOpenKeys={['sub1']}
+            mode="inline"
+            >
+            <SubMenu key="sub2" title={<span><Icon type="appstore" /><span>Courses</span></span>}>
+              <Menu.Item key="1">Courses List</Menu.Item>
+              <Menu.Item key="2">New Course</Menu.Item>
+            </SubMenu>
+            <SubMenu key="sub4" title={<span><Icon type="setting" /><span>Users</span></span>}>
+              <Menu.Item key="3">Users List</Menu.Item>
+              <Menu.Item key="4">New User</Menu.Item>
+            </SubMenu>
+          </Menu>
         </NavWrap>
         <LogoutWrap>
           <LogoutButton onClick={this.logout}>
