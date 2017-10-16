@@ -1,6 +1,14 @@
 import React, { Component } from 'react'
 import SideBar from './SideBar'
 import styled from 'styled-components'
+import {
+  Route,
+  Switch
+ } from 'react-router-dom'
+import CourseList from '../Course/CourseList'
+import NewCourse from '../Course/NewCourse'
+import UserList from '../User/UserList'
+import NewUser from '../User/NewUser'
 
 const DashbordWrap = styled.div`
   height: 100vh;
@@ -28,7 +36,12 @@ class Dashbord extends Component {
         </SideBarWrap>
         <MainWrap>
           <TopHeaderWrap />
-          MainWrap
+          <Switch>
+            <Route path='/dashbord/courses/new' component={NewCourse} />
+            <Route path='/dashbord/courses' component={CourseList} />
+            <Route path='/dashbord/users/new' component={NewUser} />
+            <Route path='/dashbord/users' component={UserList} />
+          </Switch>
         </MainWrap>
       </DashbordWrap>
     )
